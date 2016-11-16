@@ -10,7 +10,7 @@ class Items_model extends  CI_Model
     {
         if($id  === FALSE )
         {
-            $query = $this->db->get_items('item');
+            $query = $this->db->get('item');
             return $query->result_array();
         }
 
