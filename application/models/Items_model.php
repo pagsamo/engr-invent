@@ -20,7 +20,10 @@ class Items_model extends  CI_Model
 
     }
 
-
+    public function create_item()
+    {
+        $this->db->insert('item',$this->input->post());
+    }
 
 
 }

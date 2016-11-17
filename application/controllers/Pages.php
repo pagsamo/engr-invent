@@ -10,6 +10,9 @@ class Pages extends CI_Controller{
 
     public function view($page = 'home')
     {
+//        validation of the create item form
+        $this->load->library('form_validation');
+
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
             show_404();
