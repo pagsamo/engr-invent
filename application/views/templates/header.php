@@ -9,6 +9,7 @@
 <script src="<?php echo js_url('bootstrap.min.js'); ?>"></script>
 <script src="<?php echo js_url('main.js'); ?>"></script>
 <script src="<?php echo js_url('form_processing.js'); ?>"></script>
+<script src="<?php echo js_url('bootstrap-custom.js'); ?>"></script>
 <body>
 
 

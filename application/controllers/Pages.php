@@ -24,7 +24,20 @@ class Pages extends CI_Controller{
             unset($_SESSION['info']);
         }
         $this->load->view('templates/header',$data);
+        $this->load->view('templates/nav');
         $this->load->view('pages/'.$page, $data);
         $this->load->view('templates/footer',$data);
     }
+
+
+    public function view_form($form_name = FALSE)
+    {
+        $this->load->view('forms/'.$form_name);
+    }
+
+
+
+
+
+
 }
