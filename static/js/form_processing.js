@@ -15,11 +15,13 @@ $(document).ready(function(){
 
             var alarm = '<div class="alert alert-danger alert-dismissible" role="alert">'
                 alarm += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
-                alarm += result;
+                result.forEach(function(a){
+                    alarm += "<p>"+a+"</p>";
+                });
                 alarm += '</div>';
 
             $('.message-placeholder').html(alarm);
-        });
+        },'json');
     });
 
 

@@ -45,7 +45,7 @@ class Items extends CI_Controller{
 
         if($this->form_validation->run() === FALSE)
         {
-            echo strip_tags(validation_errors());
+            echo json_encode(explode('.',strip_tags(validation_errors())));
         }else{
             $this->items_model->create_item();
         }
