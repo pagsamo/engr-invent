@@ -6,6 +6,7 @@ class Items extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('items_model');
+        $this->load->database();
     }
 
     public function create()
@@ -48,6 +49,9 @@ class Items extends CI_Controller{
             echo json_encode(explode('.',strip_tags(validation_errors())));
         }else{
             $this->items_model->create_item();
+            $name = $this->items_model->get_last_item();
+            $this->session->set_userdata('info',$name." has been added.");
+            echo json_encode(array('stat'=>true));
         }
     }
 

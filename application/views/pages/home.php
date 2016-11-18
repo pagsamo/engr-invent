@@ -1,7 +1,14 @@
 
 <div class="container">
     <h1>Overview</h1>
-
+<!--    output session information if exists-->
+    <?php if(isset($info)): ?>
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><?php echo $info; ?></strong>
+        </div>
+    <?php endif; ?>
+<!--    output session information if exists-->
     <div class="panel panel-default">
         <div class="panel-heading">
                 <h3>Statistics <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a></h3>
