@@ -9,6 +9,12 @@ class Items extends CI_Controller{
         $this->load->database();
     }
 
+
+    public function lookup()
+    {
+        echo json_encode($this->items_model->selected_f('name, id, unit'));
+    }
+
     public function create()
     {
         $this->load->helper('form');

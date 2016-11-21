@@ -1,5 +1,7 @@
 <div class="panel panel-default">
-    <div class="panel-heading"><h3>Stocks History</h3></div>
+    <div class="panel-heading">
+        <h3>Stocks History <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -10,12 +12,83 @@
                 <th>Quantity</th>
                 <th>Amount</th>
                 <th>Supplier</th>
-                <th>Purpose</th>
                 <th>Date</th>
             </tr>
         </thead>
         <tbody>
-            
+            <?php foreach($stocks as $s): ?>
+                <tr>
+                    <td><?php echo $s['id']; ?></td>
+                    <td><?php echo $s['rp_number']; ?></td>
+                    <td><?php echo $s['item_name']; ?></td>
+                    <td><?php echo $s['unit']; ?></td>
+                    <td><?php echo $s['quantity']; ?></td>
+                    <td><?php echo $s['amount']; ?></td>
+                    <td><?php echo $s['supplier']; ?></td>
+                    <td><?php echo $s['date']; ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<!--modal-->
+<div id="new_stock_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content" id="test">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add New Stock</h4>
+            </div>
+            <div class="modal-body">
+
+                <?php echo form_open('stocks/new','id="new_stock_form"'); ?>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="title">Select Item</label>
+                            <input class="form-control item-name-auto" type="text" name="name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rp_number">RP number</label>
+                            <input type="number" class="form-control" name="rp_number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" name="quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" class="form-control" name="amount">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="supplier">Supplier</label>
+                            <input type="text" class="form-control" name="supplier">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose">Purpose</label>
+                            <textarea class="form-control" name="pu" id="" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" name="date">
+                        </div>
+                    </div>
+                </div>
+                <div class="message-placeholder"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <!--close the form-->
+                </form>
+        </div>
+    </div>
+</div><!--modal-->

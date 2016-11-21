@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+/////////////////ITEM////////////////////////////////////
     // create item
     $('#item_create').submit(function(){
         event.preventDefault();
@@ -26,6 +27,25 @@ $(document).ready(function(){
             // console.log(result);
         },'json');
     }); // create item
+
+///////////////STOCKS/////////////////////////////////////
+//    autocomplete for item name
+
+    var items = [];
+    $.getJSON('http://localhost/engr-invent/index.php/items/lookup', function(data){
+        data.forEach(function(d)
+        {
+            var i = {};
+            i.value = d.name;
+        });
+        console.log(items);
+    });
+
+    $('.item-name-auto').autocomplete({
+        lookup: items
+    });
+
+
 
 
 });

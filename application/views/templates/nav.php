@@ -8,14 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">Engineering Material Inventory</a>
+            <a class="navbar-brand" href="<?php echo base_url('index.php') ?>">Engineering Material Inventory</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="stocks">Stocks</a></li>
-                <li><a href="release">Release</a></li>
+                <li><a href="<?php echo base_url('index.php/stocks'); ?>">Stocks</a></li>
+                <li><a href="<?php echo base_url('index.php/release'); ?>">Release</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<div class="container">

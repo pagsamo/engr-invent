@@ -19,6 +19,15 @@ class Items_model extends  CI_Model
 
     }
 
+    public function selected_f($string_of_values = 'name, id')
+    {
+        $this->db->select($string_of_values);
+        $this->db->from('item');
+        $this->db->order_by('name','DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function get_last_item(){
         $this->db->select('name');
         $this->db->from('item');
