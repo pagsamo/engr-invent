@@ -14,7 +14,10 @@ class Stocks_model extends CI_Model
 
     }//get_stocks
 
+    public function new_stocks()
+    {
 
+    }
 
 
 

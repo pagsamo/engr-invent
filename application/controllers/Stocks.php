@@ -22,6 +22,43 @@ class Stocks extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+
+    public function new_stocks()
+    {
+        $ruleset = array(
+            array(
+                'field' => 'item_name',
+                'label' => 'Item name',
+                'rules' => 'trim|required'
+            ),
+            array(
+                'field' => 'rp_number',
+                'label' => 'RP Number',
+                'rules' => 'trim|required|numeric'
+            ),
+            array(
+                'field' => 'amount',
+                'label' => 'amount',
+                'rules' => 'required|numeric|trim'
+            ),
+            array(
+                'field' => 'supplier',
+                'label' => 'supplier',
+                'rules' => 'required|trim'
+            ),
+            array(
+                'field' => 'purpose',
+                'label' => 'purpose',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'date',
+                'label' => 'Date',
+                'rules' => 'required|trim'
+            )
+        );
+        $this->form_validation->set_rules($ruleset);
+    }
     
 
 
