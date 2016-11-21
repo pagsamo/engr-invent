@@ -48,6 +48,10 @@
                         <div class="form-group">
                             <label for="title">Select Item</label>
                             <input class="form-control item-name-auto" type="text" name="name" />
+<!--                            id and unit hidden-->
+                            <input type="hidden" name="id">
+                            <input type="hidden" name="unit">
+<!--                            id and unit hidden-->
                         </div>
 
                         <div class="form-group">

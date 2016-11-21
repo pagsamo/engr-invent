@@ -12,7 +12,7 @@ class Items extends CI_Controller{
 
     public function lookup()
     {
-        echo json_encode($this->items_model->selected_f('name, id, unit'));
+        echo json_encode($this->items_model->selected_f('name as value, id, unit'));
     }
 
     public function create()

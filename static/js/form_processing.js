@@ -31,18 +31,23 @@ $(document).ready(function(){
 ///////////////STOCKS/////////////////////////////////////
 //    autocomplete for item name
 
+
+    // lets get the items
     var items = [];
     $.getJSON('http://localhost/engr-invent/index.php/items/lookup', function(data){
         data.forEach(function(d)
         {
-            var i = {};
-            i.value = d.name;
+           items.push(d);
         });
-        console.log(items);
     });
+    // get items assign to items
 
     $('.item-name-auto').autocomplete({
-        lookup: items
+        lookup: items,
+        onSelect: function (suggestion) {
+            $('input[name="id"]').val(suggestion.id);
+            $('input[name="unit"]').val(suggestion.unit);
+        }
     });
 
 
