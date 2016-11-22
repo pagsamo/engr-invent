@@ -15,6 +15,10 @@ class Stocks extends CI_Controller
 
     public function view()
     {
+        if(isset($_SESSION['info'])){
+            $data['info'] = $_SESSION['info'];
+            unset($_SESSION['info']);
+        }
         $data['stocks'] = $this->stocks_model->get_stocks();
         $this->load->view('templates/header');
         $this->load->view('templates/nav');
@@ -58,8 +62,17 @@ class Stocks extends CI_Controller
             )
         );
         $this->form_validation->set_rules($ruleset);
-    }
-    
+        if($this->form_validation->run() === FALSE)
+        {
+            echo json_encode(explode('.',strip_tags(validation_errors())));
+        }else{
+            $this->stocks_model->new_stocks();
+            $s = $this->stocks_model->get_last('item_name, quantity');
+            $this->session->set_userdata('info',$s['item_name']." x ".$s['quantity']." has been added to the stocks.");
+            echo json_encode(array('stat'=>true));
+        }
+    }//new stocks
+   
 
 
 

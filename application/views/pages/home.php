@@ -42,7 +42,7 @@
 
 <!--Create Item Form Modal-->
 <div class="modal fade" id="create_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -52,29 +52,33 @@
 
                 <?php echo form_open('items/create','id="item_create"'); ?>
                     <div class="row">
-                        <div class="form-group">
-                            <label for="title">Name</label>
-                            <input class="form-control" type="text" name="name" />
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="title">Name</label>
+                                <input class="form-control" type="text" name="name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="unit">Unit</label>
+                                <input class="form-control" name="unit" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="balance">Initial Balance</label>
+                                <input class="form-control" type="number" name="balance">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="unit">Unit</label>
-                            <input class="form-control" name="unit" type="text">
-                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="frequency">Frequency</label>
+                                <input class="form-control" type="number" name="frequency">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="balance">Initial Balance</label>
-                            <input class="form-control" type="number" name="balance">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="frequency">Frequency</label>
-                            <input class="form-control" type="number" name="frequency">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category">Category</label>
-                            <input type="text" class="form-control" name="category">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <input type="text" class="form-control" name="category">
+                            </div>
                         </div>
                     </div>
                 <div class="message-placeholder"></div>

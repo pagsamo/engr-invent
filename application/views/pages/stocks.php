@@ -1,3 +1,9 @@
+<?php if(isset($info)): ?>
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><?php echo $info; ?></strong>
+    </div>
+<?php endif; ?>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3>Stocks History <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
@@ -40,25 +46,21 @@
                 <h4 class="modal-title" id="myModalLabel">Add New Stock</h4>
             </div>
             <div class="modal-body">
-
-                <?php echo form_open('stocks/new','id="new_stock_form"'); ?>
-
+                <?php echo form_open('stocks/news_stocks','id="stock_f"'); ?>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="title">Select Item</label>
-                            <input class="form-control item-name-auto" type="text" name="name" />
+                            <input class="form-control item-name-auto" type="text" name="item_name" />
 <!--                            id and unit hidden-->
-                            <input type="hidden" name="id">
+                            <input type="hidden" name="item_id">
                             <input type="hidden" name="unit">
 <!--                            id and unit hidden-->
                         </div>
-
                         <div class="form-group">
                             <label for="rp_number">RP number</label>
                             <input type="number" class="form-control" name="rp_number">
                         </div>
-
                         <div class="form-group">
                             <label for="quantity">Quantity</label>
                             <input type="number" class="form-control" name="quantity">
@@ -77,7 +79,7 @@
 
                         <div class="form-group">
                             <label for="purpose">Purpose</label>
-                            <textarea class="form-control" name="pu" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" name="purpose" id="" cols="30" rows="5"></textarea>
                         </div>
 
                         <div class="form-group">
