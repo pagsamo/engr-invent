@@ -1,6 +1,5 @@
 
 <div class="container">
-    <h1>Overview</h1>
 <!--    output session information if exists-->
     <?php if(isset($info)): ?>
         <div class="alert alert-info alert-dismissible" role="alert">
@@ -9,11 +8,11 @@
         </div>
     <?php endif; ?>
 <!--    output session information if exists-->
-    <div class="panel panel-default">
+    <div class="panel panel-default panel-info">
         <div class="panel-heading">
-                <h3>Statistics <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a></h3>
+                <h3>OVERVIEW <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a></h3>
         </div>
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>ID</th>

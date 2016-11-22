@@ -4,11 +4,11 @@
         <strong><?php echo $info; ?></strong>
     </div>
 <?php endif; ?>
-<div class="panel panel-default">
+<div class="panel panel-default panel-success">
     <div class="panel-heading">
-        <h3>Stocks History <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
+        <h3>STOCKS HISTORY <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>ID</th>
