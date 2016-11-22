@@ -7,6 +7,7 @@ class Stocks extends CI_Controller
     {
         parent::__construct();
         $this->load->model('stocks_model');
+        $this->load->model('items_model');
         $this->load->database();
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -66,9 +67,16 @@ class Stocks extends CI_Controller
         {
             echo json_encode(explode('.',strip_tags(validation_errors())));
         }else{
-            $this->stocks_model->new_stocks();
-            $s = $this->stocks_model->get_last('item_name, quantity');
-            $this->session->set_userdata('info',$s['item_name']." x ".$s['quantity']." has been added to the stocks.");
+            $i = $this->input->post('item_id');
+            $q = $this->input->post('quantity');
+            $start = $this->items_model->get_items($i);
+            $total = (int)$start['balance'] + (int)$q;
+            $this->db->trans_start();
+                $this->items_model->update_balance($i,$total);
+                $this->stocks_model->new_stocks();
+            $this->db->trans_complete();
+            $s = $this->stocks_model->get_last('item_name as i, quantity as q, unit as u');
+            $this->session->set_userdata('info',$s['i']." ".$s['q']." ".$s['u']."s has been added to the stocks.");
             echo json_encode(array('stat'=>true));
         }
     }//new stocks

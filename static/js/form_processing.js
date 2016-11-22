@@ -20,13 +20,13 @@ $(document).ready(function(){
     $('#item_create').submit(function(){
         event.preventDefault();
         $.post('index.php/items/create',$(this).serialize(), function(result){
-            if(result.stat === true)
-            {
-                location.reload();
-            }else{
+           if(result.stat === true)
+           {
+                 location.reload();
+           }else{
                 $('.message-placeholder').html("");
-                $('.message-placeholder').html(alarmer(result));
-            }
+               $('.message-placeholder').html(alarmer(result));
+           }
         },'json');
     }); // create item
 
@@ -47,7 +47,7 @@ $(document).ready(function(){
     $('.item-name-auto').autocomplete({
         lookup: items,
         onSelect: function (suggestion) {
-            $('input[name="id"]').val(suggestion.id);
+            $('input[name="item_id"]').val(suggestion.id);
             $('input[name="unit"]').val(suggestion.unit);
         }
     });
@@ -57,10 +57,10 @@ $(document).ready(function(){
         event.preventDefault();
         $.post('stocks/new_stocks',$(this).serialize(), function(result)
         {
-            if(result.stat === true)
+             if(result.stat === true)
             {
                 location.reload();
-            }else{
+             }else{
                 $('.message-placeholder').html("");
                 $('.message-placeholder').html(alarmer(result));
             }
