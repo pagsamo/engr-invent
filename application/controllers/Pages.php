@@ -11,23 +11,21 @@ class Pages extends CI_Controller{
         $this->load->helper('form');
     }
 
-    public function view($page = 'home')
+    public function view($month=null,$year=null)
     {
-//        validation of the create item form
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
+        if($month == null && $year == null)
         {
-            show_404();
+            $month = $this->dater()[0];
+            $year = $this->dater()[1];
         }
-
-        $data['title'] = ucfirst($page);
-        $data['items'] = $this->analyzing();
+        $data['items'] = $this->analyzing($month,$year);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);
         }
         $this->load->view('templates/header',$data);
         $this->load->view('templates/nav');
-        $this->load->view('pages/'.$page, $data);
+        $this->load->view('pages/home', $data);
         $this->load->view('templates/footer',$data);
     }
 
@@ -52,17 +50,24 @@ class Pages extends CI_Controller{
     public function analyzing($month,$year)
     {
         $items = $this->items_model->get_items();
+        $all = [];
         foreach($items as $i)
         {
             $v = $this->algos($i['id'],$month,$year);
             array_push($i,$v);
-            echo $i[0].'<br/>';
+            array_push($all,$i);
         }
-        return $items;
+        return $all;
     }//analyzing
 
 
-
+    public function dater()
+    {
+        date_default_timezone_set('Asia/Manila');
+        $c = mdate('%m-%Y',now());
+        $a = explode('-',$c);
+        return $a;
+    }
 
 
 
