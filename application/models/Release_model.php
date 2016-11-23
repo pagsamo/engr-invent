@@ -4,6 +4,7 @@ class Release_model extends CI_Model
     public function __construct()
     {
         $this->load->database();
+        $this->load->helper('date');
     }
 
 
@@ -20,6 +21,8 @@ class Release_model extends CI_Model
     }//new release
 
 
+
+    // get last release
     public function get_last($string_of_fields = 'item_name'){
         $this->db->select($string_of_fields);
         $this->db->from('release');
@@ -28,6 +31,23 @@ class Release_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }//get last stock
+
+  
+  //total in month
+  public function total_in_month($item_id,$month,$year)
+  {
+    $dend = days_in_month($month,$year);
+    $pre = $year."-".$month."-";
+    $query = "SELECT SUM(quantity) ";
+    $query .= " FROM release WHERE item_id={$item_id}";
+    $query .= " AND date >= '".$pre."01'";
+    $query .= " AND date <= '".$pre.$dend."'";
+    $q = $this->db->query($query);
+    $q2 = $q->row_array();
+    return array_pop($q2);
+  }//total in month
+
+
 
 
 }//release model
