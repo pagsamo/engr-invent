@@ -10,7 +10,44 @@
 <!--    output session information if exists-->
     <div class="panel panel-default panel-info">
         <div class="panel-heading">
-                <h3>OVERVIEW <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a></h3>
+            <h3 class="row">
+                <div class="col-xs-3">
+                    OVERVIEW
+                </div>
+                <div class="col-xs-7 filter-div">
+                    <div class="form form-inline pull-right">
+                        <div class="form-group">
+                            <select class="form-control" name="month">
+                                <option value="">Jan</option>
+                                <option value="">Feb</option>
+                                <option value="">Mar</option>
+                                <option value="">Apr</option>
+                                <option value="">May</option>
+                                <option value="">June</option>
+                                <option value="">Jul</option>
+                                <option value="">Aug</option>
+                                <option value="">Sep</option>
+                                <option value="">Oct</option>
+                                <option value="">Nov</option>
+                                <option value="">Dec</option>
+                            </select>
+                            <select name="year" id="" class="form-control">
+                                <option value="">2016</option>
+                                <option value="">2017</option>
+                            </select>
+                            <select class="form-control" name="category" id="">
+                                <option value="">All</option>
+                                <option value="">Electrical</option>
+                                <option value="">Mechanical</option>
+                                <option value="">Plumbing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2 filter-div">
+                    <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </h3>
         </div>
         <table class="table table-striped table-hover">
             <thead>

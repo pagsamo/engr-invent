@@ -4,7 +4,7 @@
         <strong><?php echo $info; ?></strong>
     </div>
 <?php endif; ?>
-<div class="panel panel-default panel-success">
+<div class="panel panel-default panel-info">
     <div class="panel-heading">
         <h3>STOCKS HISTORY <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
     </div>
