@@ -68,7 +68,7 @@
                     <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['balance']; ?></td>
                     <td><?php echo $item['category']; ?></td>
-                    <td><?php echo $item[0]; ?></td>
+                    <td><?php echo $item['0']; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -1,6 +1,6 @@
 <?php
 
-class Pages extends CI_Controller{
+class Main extends CI_Controller{
 
     public function __construct()
     {
@@ -11,23 +11,16 @@ class Pages extends CI_Controller{
         $this->load->helper('form');
     }
 
-    public function view($page = 'home')
+    public function view($month=null,$year=null)
     {
-//        validation of the create item form
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
-        {
-            show_404();
-        }
-
-        $data['title'] = ucfirst($page);
-        $data['items'] = $this->analyzing();
+        $data['items'] = $this->analyzing($month,$year);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);
         }
         $this->load->view('templates/header',$data);
         $this->load->view('templates/nav');
-        $this->load->view('pages/'.$page, $data);
+        $this->load->view('pages/home', $data);
         $this->load->view('templates/footer',$data);
     }
 
@@ -49,20 +42,23 @@ class Pages extends CI_Controller{
 
 
     // analyzing
-    public function analyzing($month,$year)
+    public function analyzing($month=null,$year=null)
     {
+        if($month == null && $year == null)
+        {
+            $month = default_now()[1];
+            $year = default_now()[0];
+        }
         $items = $this->items_model->get_items();
+        $morph = [];
         foreach($items as $i)
         {
             $v = $this->algos($i['id'],$month,$year);
             array_push($i,$v);
-            echo $i[0].'<br/>';
+            array_push($morph,$i);
         }
-        return $items;
+        return $morph;
     }//analyzing
-
-
-
 
 
 
