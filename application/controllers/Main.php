@@ -1,6 +1,6 @@
 <?php
 
-class Pages extends CI_Controller{
+class Main extends CI_Controller{
 
     public function __construct()
     {
@@ -13,11 +13,14 @@ class Pages extends CI_Controller{
 
     public function view($month=null,$year=null)
     {
+<<<<<<< HEAD:application/controllers/Pages.php
         if($month == null && $year == null)
         {
             $month = $this->dater()[0];
             $year = $this->dater()[1];
         }
+=======
+>>>>>>> before-breaking-lookup:application/controllers/Main.php
         $data['items'] = $this->analyzing($month,$year);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
@@ -47,14 +50,24 @@ class Pages extends CI_Controller{
 
 
     // analyzing
-    public function analyzing($month,$year)
+    public function analyzing($month=null,$year=null)
     {
+        if($month == null && $year == null)
+        {
+            $month = default_now()[1];
+            $year = default_now()[0];
+        }
         $items = $this->items_model->get_items();
+<<<<<<< HEAD:application/controllers/Pages.php
         $all = [];
+=======
+        $morph = [];
+>>>>>>> before-breaking-lookup:application/controllers/Main.php
         foreach($items as $i)
         {
             $v = $this->algos($i['id'],$month,$year);
             array_push($i,$v);
+<<<<<<< HEAD:application/controllers/Pages.php
             array_push($all,$i);
         }
         return $all;
@@ -70,5 +83,13 @@ class Pages extends CI_Controller{
     }
 
 
+=======
+            array_push($morph,$i);
+        }
+        return $morph;
+    }//analyzing
+
+
+>>>>>>> before-breaking-lookup:application/controllers/Main.php
 
 }

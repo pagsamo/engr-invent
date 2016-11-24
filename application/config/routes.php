@@ -49,18 +49,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+<<<<<<< HEAD
 $route['dater'] = 'pages/dater';
 $route['analyzing/(:any)/(:any)'] = 'pages/analyzing/$1/$2';
 $route['algos/(:any)/(:any)/(:any)'] = 'pages/algos/$1/$2/$3'; //for removal
+=======
+$route['analyzing/(:any)/(:any)'] = 'main/analyzing/$1/$2';
+$route['analyzing'] = 'main/analyzing';
+$route['algos/(:any)/(:any)/(:any)'] = 'main/algos/$1/$2/$3'; //for removal
+>>>>>>> before-breaking-lookup
 $route['release'] = 'release/view';
 $route['stocks/new_stocks'] = 'stocks/new_stocks';
 $route['stocks'] = 'stocks/view';
-$route['pages/view_form/$1'] = 'pages/view_form/$1';
 $route['items/create'] = 'items/create';
+<<<<<<< HEAD
 $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 $route['default_controller'] = 'pages/view';
 $route['(:any)/(:any)'] = 'pages/view/$1/$2';
+=======
+$route['default_controller'] = 'main/view';
+$route['(:any)/(:any)'] = 'main/view/$1/$2/';
+>>>>>>> before-breaking-lookup
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
