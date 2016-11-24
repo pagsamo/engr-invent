@@ -68,9 +68,9 @@
                     <td><?php echo $item['name']; ?></td>
                     <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['balance']; ?></td>
-                    <td>Placeholder</td>
+                    <td><?php echo $item['0'][0]; ?></td>
                     <td><?php echo $item['category']; ?></td>
-                    <td><?php echo $item['0']; ?></td>
+                    <td><?php echo $item['0'][1]; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

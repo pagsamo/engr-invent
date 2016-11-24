@@ -2,7 +2,7 @@ $(document).ready(function(){
 /////////////////VARIABLE LOOK UP HELPERS///////////////////////////////
     // lets get the items
     var items = [];
-    $.getJSON('http://localhost/engr-invent/index.php/items/lookup', function(data){
+    $.getJSON('/engr-invent/index.php/items/lookup', function(data){
         data.forEach(function(d)
         {
             items.push(d);

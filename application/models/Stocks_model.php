@@ -33,10 +33,10 @@ class Stocks_model extends CI_Model
 
     /**
      * [total_in_mont description]
-     * @param  [type] $item_id [description]
-     * @param  [type] $month   [description]
-     * @param  [type] $year    [description]
-     * @return [type]          [description]
+     * @param  [int] $item_id [description]
+     * @param  [int] $month   [description]
+     * @param  [int] $year    [description]
+     * @return [int]          [description]
      */
     public function total_in_month($item_id, $month, $year)
     {

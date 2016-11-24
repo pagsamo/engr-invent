@@ -30,14 +30,15 @@ class Main extends CI_Controller{
     {
         $i = $this->items_model->get_items($id);
         $total = $this->release_model->total_in_month($id,$month,$year);
+        $total = $total == 0 ? 0:$total; 
         if($total > $i['frequency'])
         {
-            return "FAST";
+            return array($total, "FAST");
         }elseif($total == $i['frequency'])
         {
-            return 'NORMAL';
+            return array($total, 'NORMAL');
         }else{
-            return 'SLOW';
+            return array($total, 'SLOW');
         }
     }//algos
 
@@ -61,7 +62,15 @@ class Main extends CI_Controller{
         return $all;
     }//analyzing
 
+    
+    /**
+     * test placeholder
+     * @return [type] [description]
+     */
+    public function test()
+    {
 
+    }//test
 
 
 

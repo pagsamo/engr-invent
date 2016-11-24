@@ -44,9 +44,16 @@ class Release_model extends CI_Model
     $query .= " AND date <= '".$pre.$dend."'";
     $q = $this->db->query($query);
     $q2 = $q->row_array();
-    return array_pop($q2);
+    if(empty($q2))
+    {
+        return '0';
+    }else{
+        return array_pop($q2);
+    }
   }//total in month
 
+
+ 
 
 
 
