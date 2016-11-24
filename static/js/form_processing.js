@@ -1,5 +1,8 @@
 $(document).ready(function(){
 /////////////////VARIABLE LOOK UP HELPERS///////////////////////////////
+    //months
+    var months = {};
+
     // lets get the items
     var items = [];
     $.getJSON('/engr-invent/index.php/items/lookup', function(data){

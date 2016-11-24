@@ -18,28 +18,25 @@
                     <div class="form form-inline pull-right">
                         <div class="form-group">
                             <select class="form-control" name="month">
-                                <option value="">Jan</option>
-                                <option value="">Feb</option>
-                                <option value="">Mar</option>
-                                <option value="">Apr</option>
-                                <option value="">May</option>
-                                <option value="">June</option>
-                                <option value="">Jul</option>
-                                <option value="">Aug</option>
-                                <option value="">Sep</option>
-                                <option value="">Oct</option>
-                                <option value="">Nov</option>
-                                <option value="">Dec</option>
+                                <?php foreach(months() as $mo): ?>
+                                    <option value='<?php echo $mo['Val'] ?>'
+                                    <?php if((int)$mo['Val'] == (int)$m)
+                                        {
+                                            echo " selected";
+                                        } ?>
+                                    <?php echo ">{$mo['name']}</option>"; ?>
+                                <?php endforeach; ?>
                             </select>
                             <select name="year" id="" class="form-control">
-                                <option value="">2016</option>
-                                <option value="">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
                             </select>
                             <select class="form-control" name="category" id="">
-                                <option value="">All</option>
-                                <option value="">Electrical</option>
-                                <option value="">Mechanical</option>
-                                <option value="">Plumbing</option>
+                                <option value="all">All</option>
+                                <option value="general">General</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="mechanical">Mechanical</option>
+                                <option value="plumbing">Plumbing</option>
                             </select>
                         </div>
                     </div>

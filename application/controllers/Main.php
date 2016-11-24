@@ -14,6 +14,8 @@ class Main extends CI_Controller{
     //view
     public function view($month=null,$year=null)
     {
+        $data['m'] = $month == null?default_now()[1]:$month;
+        $data['y'] = $year == null?default_now()[0]:$year;
         $data['items'] = $this->analyzing($month,$year);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
