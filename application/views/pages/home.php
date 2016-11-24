@@ -52,21 +52,23 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Unit</th>
-                    <th>Balance</th>
-                    <th>Category</th>
-                    <th>Movement</th>
+                    <th class=text-center>ID</th>
+                    <th class=text-center>Name</th>
+                    <th class=text-center>Unit</th>
+                    <th class=text-center>Current Balance</th>
+                    <th class=text-center>Total Released</th>
+                    <th class=text-center>Category</th>
+                    <th class=text-center>Movement</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($items as $item): ?>
-                <tr>
+                <tr class="text-center">
                     <td><?php echo $item['id']; ?></td>
                     <td><?php echo $item['name']; ?></td>
                     <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['balance']; ?></td>
+                    <td>Placeholder</td>
                     <td><?php echo $item['category']; ?></td>
                     <td><?php echo $item['0']; ?></td>
                 </tr>

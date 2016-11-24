@@ -11,6 +11,7 @@ class Main extends CI_Controller{
         $this->load->helper('form');
     }
 
+    //view
     public function view($month=null,$year=null)
     {
         $data['items'] = $this->analyzing($month,$year);
@@ -22,7 +23,7 @@ class Main extends CI_Controller{
         $this->load->view('templates/nav');
         $this->load->view('pages/home', $data);
         $this->load->view('templates/footer',$data);
-    }
+    }//view
 
     //algos for analyzing
     public function algos($id,$month,$year)
@@ -61,4 +62,7 @@ class Main extends CI_Controller{
     }//analyzing
 
 
-}
+
+
+
+}//class declaration

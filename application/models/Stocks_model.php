@@ -7,6 +7,7 @@ class Stocks_model extends CI_Model
     }//constructor
 
 
+    //get stocks
     public function get_stocks()
     {
         $query  = $this->db->get('stocks');
@@ -29,6 +30,26 @@ class Stocks_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }//get last stock
+
+    /**
+     * [total_in_mont description]
+     * @param  [type] $item_id [description]
+     * @param  [type] $month   [description]
+     * @param  [type] $year    [description]
+     * @return [type]          [description]
+     */
+    public function total_in_month($item_id, $month, $year)
+    {
+        $dend = days_in_month($month,$year);
+        $pre = $year."-".$month."-";
+        $query = "SELECT SUM(quantity) ";
+        $query .= " FROM stocks WHERE item_id={$item_id}";
+        $query .= " AND date >= '".$pre."01'";
+        $query .= " AND date <= '".$pre.$dend."'";
+        $q = $this->db->query($query);
+        $q2 = $q->row_array();
+        return array_pop($q2);
+    }//total in month
 
 
 }//Class Stocks
