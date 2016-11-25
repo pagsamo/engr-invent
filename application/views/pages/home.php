@@ -8,14 +8,14 @@
         </div>
     <?php endif; ?>
 <!--    output session information if exists-->
-    <h1>Overview - <?php echo months()[$m-1]['name'].", {$y}";  ?> </h1>
+    <h1>Overview - <?php echo months()[$m-1]['name'].", {$y} | {$c}";  ?> </h1>
     <div class="panel panel-default panel-info">
         <div class="panel-heading">
             <h3 class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-2">
                      Statistics 
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-9">
                     <div class="form form-inline pull-right">
                         <div class="form-group">
                             <select class="form-control" name="month">
@@ -33,11 +33,11 @@
                                 <option value="2017">2017</option>
                             </select>
                             <select class="form-control" name="category" id="">
-                                <option value="all">All</option>
-                                <option value="general">General</option>
-                                <option value="electrical">Electrical</option>
-                                <option value="mechanical">Mechanical</option>
-                                <option value="plumbing">Plumbing</option>
+                                <option value="ALL">All</option>
+                                <option value="GENERAL">General</option>
+                                <option value="ELECTRICAL">Electrical</option>
+                                <option value="MECHANICAL">Mechanical</option>
+                                <option value="PLUMBING">Plumbing</option>
                             </select>
 
                             <div class="form-group">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-2 filter-div">
+                <div class="col-xs-1 filter-div">
                     <a class="pull-right" href="#" data-toggle="modal" data-target="#create_modal" role="button"><span class="glyphicon glyphicon-plus"></span></a>
                 </div>
             </h3>

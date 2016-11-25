@@ -19,6 +19,18 @@ class Items_model extends  CI_Model
 
     }//get items
 
+
+    public function get_items_by_cat($cat=FALSE)
+    {
+        if($cat === FALSE)
+        {
+            return $this->get_items();
+        }
+        $query = $this->db->get_where('item',array('category'=>$cat));
+        return $query->result_array();
+    }
+
+
     //selected fields
     public function selected_f($string_of_values = 'name, id')
     {

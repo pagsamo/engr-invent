@@ -12,11 +12,12 @@ class Main extends CI_Controller{
     }
 
     //view
-    public function view($month=null,$year=null)
+    public function view($month=null,$year=null,$cat=null)
     {
         $data['m'] = $month == null?default_now()[1]:$month;
         $data['y'] = $year == null?default_now()[0]:$year;
-        $data['items'] = $this->analyzing($month,$year);
+        $data['c'] = $cat == null?'all':$cat;
+        $data['items'] = $this->analyzing($month,$year,$cat);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);
@@ -30,6 +31,7 @@ class Main extends CI_Controller{
     //algos for analyzing
     public function algos($id,$month,$year)
     {
+
         $i = $this->items_model->get_items($id);
         $total = $this->release_model->total_in_month($id,$month,$year);
         $total = $total == 0 ? 0:$total; 
@@ -46,14 +48,18 @@ class Main extends CI_Controller{
 
 
     // analyzing
-    public function analyzing($month=null,$year=null)
+    public function analyzing($month=null,$year=null,$cat=null)
     {
         if($month == null && $year == null)
         {
             $month = default_now()[1];
             $year = default_now()[0];
         }
-        $items = $this->items_model->get_items();
+        if($cat === null){
+            $items = $this->items_model->get_items();
+        }else{
+            $items = $this->items_model->get_items_by_cat($cat);
+        }
         $all = [];
         foreach($items as $i)
         {
@@ -71,7 +77,7 @@ class Main extends CI_Controller{
      */
     public function test()
     {
-
+        
     }//test
 
 
