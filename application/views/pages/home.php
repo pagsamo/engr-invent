@@ -8,26 +8,27 @@
         </div>
     <?php endif; ?>
 <!--    output session information if exists-->
+    <h1>Overview - <?php echo months()[$m-1]['name'].", {$y}";  ?> </h1>
     <div class="panel panel-default panel-info">
         <div class="panel-heading">
             <h3 class="row">
-                <div class="col-xs-3">
-                    OVERVIEW
+                <div class="col-xs-4">
+                     Statistics 
                 </div>
-                <div class="col-xs-7 filter-div">
+                <div class="col-xs-6">
                     <div class="form form-inline pull-right">
                         <div class="form-group">
                             <select class="form-control" name="month">
                                 <?php foreach(months() as $mo): ?>
-                                    <option value='<?php echo $mo['Val'] ?>'
-                                    <?php if((int)$mo['Val'] == (int)$m)
+                                    <option value='<?php echo $mo['val'] ?>'
+                                    <?php if((int)$mo['val'] == (int)$m)
                                         {
                                             echo " selected";
                                         } ?>
                                     <?php echo ">{$mo['name']}</option>"; ?>
                                 <?php endforeach; ?>
                             </select>
-                            <select name="year" id="" class="form-control">
+                            <select name="year" class="form-control">
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
                             </select>
@@ -38,6 +39,10 @@
                                 <option value="mechanical">Mechanical</option>
                                 <option value="plumbing">Plumbing</option>
                             </select>
+
+                            <div class="form-group">
+                                <input type="button" class="btn btn-primary form-control goer" value="Go">
+                            </div>
                         </div>
                     </div>
                 </div>

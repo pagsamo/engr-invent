@@ -1,11 +1,9 @@
 $(document).ready(function(){
 /////////////////VARIABLE LOOK UP HELPERS///////////////////////////////
-    //months
-    var months = {};
 
     // lets get the items
     var items = [];
-    $.getJSON('/engr-invent/index.php/items/lookup', function(data){
+    $.getJSON(window.location.origin+'/engr-invent/index.php/items/lookup', function(data){
         data.forEach(function(d)
         {
             items.push(d);
@@ -51,9 +49,20 @@ $(document).ready(function(){
             },'json');
         })
     }//submitter
+
+    // goer
+    $('.goer').click(function(){
+        m = $('select[name="month"]').val();
+        y = $('select[name="year"]').val();
+        window.location = window.location.origin+'/engr-invent/index.php/'+m+'/'+y;
+    });
+    
 ////////////////////////////////////////////////////////////////////
 /////////////////FORM PROCESSING////////////////////////////////////
     submitter('#item_create','index.php/items/create');//items
     submitter('#stock_f','stocks/new_stocks');//stocks
     submitter('#release_f','release/new_release');//release
+
+    
+////////////////////////////////////////////////////////////////////
 });//JQUERY DOCUMENT INIT
