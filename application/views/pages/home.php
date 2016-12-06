@@ -8,7 +8,7 @@
         </div>
     <?php endif; ?>
 <!--    output session information if exists-->
-    <h1>Overview - <?php echo months()[$m-1]['name'].", {$y} | {$c}";  ?> </h1>
+    <h1>Overview Hey - <?php echo months()[$m-1]['name'].", {$y} | {$c}";  ?> </h1>
     <div class="panel panel-default panel-info">
         <div class="panel-heading">
             <h3 class="row">
