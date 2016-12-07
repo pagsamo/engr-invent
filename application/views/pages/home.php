@@ -8,7 +8,7 @@
         </div>
     <?php endif; ?>
 <!--    output session information if exists-->
-    <h1>Overview Hey - <?php echo months()[$m-1]['name'].", {$y} | {$c}";  ?> </h1>
+    <h1>Overview - <?php echo months()[$m-1]['name'].", {$y} | {$c}";  ?> </h1>
     <div class="panel panel-default panel-info">
         <div class="panel-heading">
             <h3 class="row">
@@ -32,12 +32,12 @@
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
                             </select>
-                            <select class="form-control" name="category" id="">
-                                <option value="ALL">All</option>
-                                <option value="GENERAL">General</option>
-                                <option value="ELECTRICAL">Electrical</option>
-                                <option value="MECHANICAL">Mechanical</option>
-                                <option value="PLUMBING">Plumbing</option>
+                            <select class="form-control" name="category">
+                            <?php foreach($cats as $cat): ?>
+                               <option value="<?php echo $cat['name']; ?>"  <?php echo $cat['name']==$c? ' selected':''; ?>>
+                                   <?php echo $cat['name']; ?>
+                               </option>
+                            <?php endforeach; ?>
                             </select>
 
                             <div class="form-group">
