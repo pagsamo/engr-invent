@@ -79,7 +79,17 @@ class Stocks extends CI_Controller
         $this->form_validation->set_rules($ruleset);
         if($this->form_validation->run() === FALSE)
         {
-            echo json_encode(explode('.',strip_tags(validation_errors())));
+            $item_id = $this->input->post('item_id');
+            $item_name = $this->input->post('item_name');
+            $errors = explode('.',strip_tags(validation_errors()));
+            array_pop($errors);
+            if($item_id == "" || $item_id == null){
+                if($item_name != "" || $item_name != null)
+                {
+                 array_push($errors, "You cannot add \"".$item_name."\" for it is not registered in the database.");
+                }
+            }
+            echo json_encode($errors);
         }else{
             $i = $this->input->post('item_id');
             $q = $this->input->post('quantity');
