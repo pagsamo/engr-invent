@@ -28,7 +28,7 @@ $(document).ready(function(){
     });//autocomplete on select items
 /////////////////////////////////////////////////////////////////////////////
 /////////////////Jquery form enablers///////////////////////////////////
-$('input[name="date_range"]').daterangepicker({
+$('.date_range').daterangepicker({
     locale:{
         format: "YYYY-MM-DD"
     },
@@ -84,5 +84,13 @@ $('input[name="date_range"]').daterangepicker({
     submitter('#release_f','release/new_release');//release
 
     
+//////////////////////////TEST//////////////////////////////////////
+$('#api_trigger').click(function(){
+    var start, end, category;
+    start = $('input[name="start"]').val();
+    end = $('input[name="end"]').val();
+    category = $('select[name="category"]').val();
+    window.location = window.location.origin+'/engr-invent/index.php/stocks/selected/'+start+'/'+end+'/'+category;
+});
 ////////////////////////////////////////////////////////////////////
 });//JQUERY DOCUMENT INIT

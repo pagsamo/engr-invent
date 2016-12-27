@@ -8,6 +8,7 @@ class Stocks extends CI_Controller
         parent::__construct();
         $this->load->model('stocks_model');
         $this->load->model('items_model');
+        $this->load->model('lookup_model');
         $this->load->database();
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -16,7 +17,7 @@ class Stocks extends CI_Controller
 
     public function view()
     {
-        $data['months'] = months();
+        $data['cats'] = $this->lookup_model->look('category');
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);
@@ -26,6 +27,18 @@ class Stocks extends CI_Controller
         $this->load->view('templates/nav');
         $this->load->view('pages/stocks',$data);
         $this->load->view('templates/footer');
+    }
+
+    /**
+     * [selected description]
+     * @param  [date] $start    [description]
+     * @param  [end] $end      [description]
+     * @param  [string] $category [description]
+     * @return [array]           [api]
+     */
+    public function selected($start,$end,$category)
+    {
+        print_r($this->stocks_model->stocks_range($start, $end, $category));
     }
 
 

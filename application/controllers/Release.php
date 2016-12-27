@@ -6,6 +6,7 @@ class Release extends CI_Controller
         parent::__construct();
         $this->load->model('release_model');
         $this->load->model('items_model');
+        $this->load->model('lookup_model');
         $this->load->library('form_validation');
         $this->load->helper('form');
     }//construct
@@ -18,6 +19,7 @@ class Release extends CI_Controller
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);
         }
+        $data['cats'] = $this->lookup_model->look('category');
         $data['release'] = $this->release_model->get_releases();
         $this->load->view('templates/header');
         $this->load->view('templates/nav');

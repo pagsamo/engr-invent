@@ -26,7 +26,7 @@ class Stocks_model extends CI_Model
      * @param  [type] $item_id  [description]
      * @return [type]           [description]
      */
-    public function stocks_range($start=null, $end=null, $category=null, $item_id=null)
+    public function stocks_range($start=null, $end=null, $category=null)
     {
         //get last day of month
         $start = $start==null?month_default()[0]:$start;
@@ -37,12 +37,14 @@ class Stocks_model extends CI_Model
         $query .= 'AND date <= "'.$end.'" ';
         if($category!=null)
         {
-            $query .= 'AND item_category = "'.$category.'"';
-            $q = $this->db->query($query);
-            $q2 = $q->result_array();
-            return $q2;
+            if($category!='ALL'){
+                $query .= 'AND item_category = "'.$category.'"';
+                $q = $this->db->query($query);
+                $q2 = $q->result_array();
+                return $q2;
+            }
         }
-        if($item_id!=null)
+        if(isset($item_id) && $item_id!=null)
         {
             $query .= 'AND item_id = "'.$item_id.'"';
             $q = $this->db->query($query);

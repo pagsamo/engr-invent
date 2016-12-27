@@ -8,6 +8,28 @@
     <div class="panel-heading">
         <h3>RELEASE HISTORY <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#release_f_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
     </div>
+    <div class="panel-heading">
+        <div class="form form-inline">
+            <div class="form-group">
+                <label for="start">From</label>
+                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[0]; ?>">
+            </div>
+            <div class="form-group">
+                <label for="to">To</label>
+                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[1]; ?>">
+            </div>
+            <div class="form-group">
+                <select name="category" id="" class="form-control">
+                    <?php foreach($cats as $c): ?>
+                        <option value="<?php echo $c['name'] ?>"><?php echo $c['name']; ?></option>
+                    <?php endforeach; ?>        
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" value="Go">
+            </div>
+        </div>
+    </div>
     <table class="table table-striped table-hover">
         <thead>
         <tr>

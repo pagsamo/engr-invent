@@ -12,19 +12,21 @@
         <div class="form form-inline">
             <div class="form-group">
                 <label for="start">From</label>
-                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[0]; ?>">
+                <input readonly name="start" type="text" class="form-control date_range" value="<?php echo month_default()[0]; ?>">
             </div>
             <div class="form-group">
                 <label for="to">To</label>
-                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[1]; ?>">
+                <input readonly name="end" type="text" class="form-control date_range" value="<?php echo month_default()[1]; ?>">
             </div>
             <div class="form-group">
                 <select name="category" id="" class="form-control">
-                    
+                    <?php foreach($cats as $c): ?>
+                        <option value="<?php echo $c['name'] ?>"><?php echo $c['name']; ?></option>
+                    <?php endforeach; ?>        
                 </select>
             </div>
             <div class="form-group">
-                <input type="button" class="btn btn-primary" value="Go">
+                <input type="button" class="btn btn-primary" value="Go" id="api_trigger">
             </div>
         </div>
     </div>
