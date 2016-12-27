@@ -91,7 +91,23 @@ $('#api_trigger').click(function(){
     start = $('input[name="start"]').val();
     end = $('input[name="end"]').val();
     category = $('select[name="category"]').val();
-    window.location = window.location.origin+'/engr-invent/index.php/stocks/selected/'+start+'/'+end+'/'+category;
+    var api_url = window.location.origin+'/engr-invent/index.php/stocks/selected/'+start+'/'+end+'/'+category;
+    var tbl_b = "";
+    $.get(api_url, function(data){
+        data.forEach(function(d){
+            var tbl = "";
+            tbl += "<tr><td>"+d.id+"</td>";
+            tbl +="<td>"+d.rp_number+"</td>";
+            tbl +="<td>"+d.item_name+"</td>";
+            tbl +="<td>"+d.unit+"</td>";
+            tbl +="<td>"+d.quantity+"</td>";
+            tbl +="<td>"+d.amount+"</td>";
+            tbl +="<td>"+d.supplier+"</td>";
+            tbl +="<td>"+d.date+"</td></tr>";
+            tbl_b += tbl;
+        });
+    $('tbody').html(tbl_b);
+    },"json");
 });
 ////////////////////////////////////////////////////////////////////
 });//JQUERY DOCUMENT INIT

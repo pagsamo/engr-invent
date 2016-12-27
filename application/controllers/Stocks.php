@@ -38,7 +38,7 @@ class Stocks extends CI_Controller
      */
     public function selected($start,$end,$category)
     {
-        print_r($this->stocks_model->stocks_range($start, $end, $category));
+        echo json_encode($this->stocks_model->stocks_range($start, $end, $category));
     }
 
 
