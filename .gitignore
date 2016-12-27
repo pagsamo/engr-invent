@@ -30,3 +30,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # CodeIgniter
 system/ci_sessions/*
 application/database/*
+application/database/dev.db
