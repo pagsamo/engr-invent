@@ -77,6 +77,7 @@
 <!--                            id and unit hidden-->
                             <input type="hidden" name="item_id">
                             <input type="hidden" name="unit">
+                            <input type="hidden" name="item_category">
 <!--                            id and unit hidden-->
                         </div>
                         <div class="form-group">

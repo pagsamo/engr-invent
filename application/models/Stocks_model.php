@@ -44,13 +44,6 @@ class Stocks_model extends CI_Model
                 return $q2;
             }
         }
-        if(isset($item_id) && $item_id!=null)
-        {
-            $query .= 'AND item_id = "'.$item_id.'"';
-            $q = $this->db->query($query);
-            $q2 = $q->result_array();
-            return $q2;
-        }
         $q = $this->db->query($query);
         $q2 = $q->result_array();
         return $q2;

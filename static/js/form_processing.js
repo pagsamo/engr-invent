@@ -24,6 +24,7 @@ $(document).ready(function(){
         onSelect: function (suggestion) {
             $('input[name="item_id"]').val(suggestion.id);
             $('input[name="unit"]').val(suggestion.unit);
+            $('input[name="item_category"]').val(suggestion.category)
         }
     });//autocomplete on select items
 /////////////////////////////////////////////////////////////////////////////
