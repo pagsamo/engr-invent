@@ -15,6 +15,45 @@ class Stocks_model extends CI_Model
 
     }//get_stocks
 
+
+    /**
+     * [stocks_range description]
+     * Filter stocks by item, month, year, category or only item
+     * The current month and all items are shown by default
+     * @param  [type] $month    [description]
+     * @param  [type] $year     [description]
+     * @param  [type] $category [description]
+     * @param  [type] $item_id  [description]
+     * @return [type]           [description]
+     */
+    public function stocks_range($start=null, $end=null, $category=null, $item_id=null)
+    {
+        //get last day of month
+        $start = $start==null?month_default()[0]:$start;
+        $end = $end==null?month_default()[1]:$end;
+        $query = 'SELECT * FROM ';
+        $query .= 'stocks ';
+        $query .= 'WHERE date >= "'.$start.'" ';
+        $query .= 'AND date <= "'.$end.'" ';
+        if($category!=null)
+        {
+            $query .= 'AND item_category = "'.$category.'"';
+            $q = $this->db->query($query);
+            $q2 = $q->result_array();
+            return $q2;
+        }
+        if($item_id!=null)
+        {
+            $query .= 'AND item_id = "'.$item_id.'"';
+            $q = $this->db->query($query);
+            $q2 = $q->result_array();
+            return $q2;
+        }
+        $q = $this->db->query($query);
+        $q2 = $q->result_array();
+        return $q2;
+    }//stocks_range_selection
+
     //new stock form input
     public function new_stocks()
     {

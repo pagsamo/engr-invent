@@ -7,6 +7,8 @@ class Main extends CI_Controller{
         parent::__construct();
         $this->load->model('items_model');
         $this->load->model('release_model');
+        $this->load->model('lookup_model');
+        $this->load->model('stocks_model');
         $this->load->library('form_validation');
         $this->load->helper('form');
     }
@@ -16,7 +18,8 @@ class Main extends CI_Controller{
     {
         $data['m'] = $month == null?default_now()[1]:$month;
         $data['y'] = $year == null?default_now()[0]:$year;
-        $data['c'] = $cat == null?'all':$cat;
+        $data['c'] = $cat == null?'ALL':$cat;
+        $data['cats'] = $this->lookup_model->look();
         $data['items'] = $this->analyzing($month,$year,$cat);
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
@@ -55,7 +58,7 @@ class Main extends CI_Controller{
             $month = default_now()[1];
             $year = default_now()[0];
         }
-        if($cat === null){
+        if($cat === null || $cat == "ALL" || $cat == "all"){
             $items = $this->items_model->get_items();
         }else{
             $items = $this->items_model->get_items_by_cat($cat);
@@ -77,7 +80,7 @@ class Main extends CI_Controller{
      */
     public function test()
     {
-        
+        print_r($this->stocks_model->stocks_range('2016-10-01','2016-12-31','ELECTRICAL'));
     }//test
 
 

@@ -24,4 +24,22 @@ function default_now()
 	return explode('-',mdate('%Y-%m-%d',now()));
 }
 
+function today()
+{
+	return mdate('%Y-%m-%d',now());
+}
+
+/**
+ * [month_default description]
+ * returns array of start and end of current month
+ * @return [array] [description]
+ */
+function month_default()
+{
+	$m = default_now();
+	$s = $m[0].'-'.$m[1].'-'.'01';
+	$md = days_in_month($m[1],$m[0]);
+	$ed = $m[0].'-'.$m[1].'-'.$md;
+	return array($s,$ed);
+}
 

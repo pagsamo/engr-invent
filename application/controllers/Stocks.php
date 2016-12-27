@@ -16,6 +16,7 @@ class Stocks extends CI_Controller
 
     public function view()
     {
+        $data['months'] = months();
         if(isset($_SESSION['info'])){
             $data['info'] = $_SESSION['info'];
             unset($_SESSION['info']);

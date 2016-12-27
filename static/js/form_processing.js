@@ -1,5 +1,14 @@
 $(document).ready(function(){
+
 /////////////////VARIABLE LOOK UP HELPERS///////////////////////////////
+    /**
+     * range starts here
+     */
+    var month_start;
+    /**
+     * range default ends here
+     */
+    var month_end;
 
     // lets get the items
     var items = [];
@@ -18,6 +27,17 @@ $(document).ready(function(){
         }
     });//autocomplete on select items
 /////////////////////////////////////////////////////////////////////////////
+/////////////////Jquery form enablers///////////////////////////////////
+$('input[name="date_range"]').daterangepicker({
+    locale: {
+        format: "YYYY-MM-DD"
+    },
+    singleDatePicker: true,
+    showDropdowns: true
+}
+);
+////////////////////////////////////////////////////////////////////////
+
 /////////////////////HTML GENERATOR FUNCTIONS////////////////////////////////
     //helper function - generate dismissable alert bootstrap
     function alarmer(ar)
@@ -54,7 +74,8 @@ $(document).ready(function(){
     $('.goer').click(function(){
         m = $('select[name="month"]').val();
         y = $('select[name="year"]').val();
-        window.location = window.location.origin+'/engr-invent/index.php/'+m+'/'+y;
+        c = $('select[name="category"]').val();
+        window.location = window.location.origin+'/engr-invent/index.php/'+m+'/'+y+'/'+c;
     });
     
 ////////////////////////////////////////////////////////////////////

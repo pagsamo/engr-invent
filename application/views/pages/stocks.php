@@ -8,6 +8,22 @@
     <div class="panel-heading">
         <h3>STOCKS HISTORY <a class="pull-right" class="pull-right" href="#" data-toggle="modal" data-target="#new_stock_modal" role="button""><span class="glyphicon glyphicon-plus"></span></a></h3>
     </div>
+    <div class="panel-heading">
+        <div class="form form-inline">
+            <div class="form-group">
+                <label for="start">From</label>
+                <input name="date_range" type="text" class="form-control" value="<?php echo month_default()[0]; ?>">
+            </div>
+            <div class="form-group">
+                <select name="category" id="" class="form-control">
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" value="Go">
+            </div>
+        </div>
+    </div>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
