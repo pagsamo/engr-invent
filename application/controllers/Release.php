@@ -70,16 +70,16 @@ class Release extends CI_Controller
             echo json_encode(explode('.',strip_tags(validation_errors())));
         }else{
 
-            // $i = $this->input->post('item_id');
-            // $q = $this->input->post('quantity');
-            // $start = $this->items_model->get_items($i);
-            // $total = (int)$start['balance'] - (int)$q;
-            // $this->db->trans_start();
-            // $this->items_model->update_balance($i,$total);
+            $i = $this->input->post('item_id');
+            $q = $this->input->post('quantity');
+            $start = $this->items_model->get_items($i);
+            $total = (int)$start['balance'] - (int)$q;
+            $this->db->trans_start();
+            $this->items_model->update_balance($i,$total);
             $this->release_model->new_release();
-            // $this->db->trans_complete();
-            // $r = $this->release_model->get_last('item_name as i, quantity as q, unit as u');
-            // $this->session->set_userdata('info',$r['q']." ".$r['u']."s of ".$r['i']." has been released from the stocks.");
+            $this->db->trans_complete();
+            $r = $this->release_model->get_last('item_name as i, quantity as q, unit as u');
+            $this->session->set_userdata('info',$r['q']." ".$r['u']."s of ".$r['i']." has been released from the stocks.");
             echo json_encode(array('stat'=>true));
         }
     }//new_release

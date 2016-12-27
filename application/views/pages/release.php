@@ -76,6 +76,7 @@
                             <input type="text" name="item_name" class="form-control item-name-auto">
                             <input type="hidden" name="item_id">
                             <input type="hidden" name="unit">
+                            <input type="hidden" name="item_category">
                         </div>
 
                         <div class="form-group">

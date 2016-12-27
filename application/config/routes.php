@@ -54,6 +54,7 @@ $route['stocks/(:any)/(:any)/(:any)'] = 'stocks/selected/$1/$2/$3';
 $route['analyzing/(:any)/(:any)'] = 'main/analyzing/$1/$2';
 $route['items/lookup'] = 'items/lookup';
 $route['analyzing'] = 'main/analyzing';
+$route['release/new_release'] = 'release/new_release';
 $route['release'] = 'release/view';
 $route['stocks/new_stocks'] = 'stocks/new_stocks';
 $route['stocks'] = 'stocks/view';
