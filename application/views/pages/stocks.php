@@ -12,7 +12,11 @@
         <div class="form form-inline">
             <div class="form-group">
                 <label for="start">From</label>
-                <input name="date_range" type="text" class="form-control" value="<?php echo month_default()[0]; ?>">
+                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[0]; ?>">
+            </div>
+            <div class="form-group">
+                <label for="to">To</label>
+                <input readonly name="date_range" type="text" class="form-control" value="<?php echo month_default()[1]; ?>">
             </div>
             <div class="form-group">
                 <select name="category" id="" class="form-control">
