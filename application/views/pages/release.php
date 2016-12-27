@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" name="date" class="form-control">
+                            <input type="text" name="date" class="form-control date_range" readonly>
                         </div>
                     </div>
                 </div>

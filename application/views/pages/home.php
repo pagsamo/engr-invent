@@ -117,7 +117,12 @@
 
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <input type="text" class="form-control" name="category">
+                                <select name="category" id="" class="form-control">
+                                    <?php $cats2 = $cats; array_shift($cats2); ?>
+                                    <?php foreach($cats2 as $c): ?>
+                                        <option value="<?php echo $c['name']; ?>"><?php echo $c['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                     </div>
