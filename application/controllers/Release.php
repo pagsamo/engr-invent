@@ -28,8 +28,6 @@ class Release extends CI_Controller
     }
 
 
-
-
     public function new_release()
     {
         $ruleset = array(
